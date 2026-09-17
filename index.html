@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portfolio · Web & Database</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">📚 Student</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#subjects">Subjects</a></li>
+                <li><a href="#docs">Submit</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HOME SECTION ===== -->
+    <section id="home" class="section home-section">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span class="highlight">Adzmeirah C. Sailila</span></h1>
+                    <h2>BS-Information Technology Student</h2>
+                    <p>Web Systems &amp; Technologies | Advanced Database System</p>
+                    <div class="student-info">
+                        <span><i class="fas fa-id-card"></i> Student ID: 2350355</span>
+                        <span><i class="fas fa-calendar"></i> 3rd Year</span>
+                        <span><i class="fas fa-university"></i> Cotabato State University</span>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#subjects" class="btn-primary">View Subjects</a>
+                        <a href="#docs" class="btn-secondary">Submit Assignment</a>
+                    </div>
+                </div>
+                <div class="hero-avatar">
+                    <div class="avatar-large">AS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-user-graduate"></i> About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a 3rd year BSIT student passionate about web development and database management. I love building functional websites and designing efficient database systems.</p>
+                    <div class="skills">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SUBJECTS SECTION ===== -->
+    <section id="subjects" class="section subjects-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-book"></i> My Subjects</h2>
+            <div class="subjects-grid">
+                <!-- Subject 1: Web Systems -->
+                <div class="subject-card">
+                    <div class="subject-icon">🌐</div>
+                    <h4>Web Systems &amp; Technologies</h4>
+                    <p>HTML, CSS, JavaScript, PHP, and web development frameworks.</p>
+                    <div class="subject-meta">
+                        <span><i class="fas fa-user"></i> Prof. Ali</span>
+                        <span><i class="fas fa-clock"></i> MWF 5:00-7:00 PM</span>
+                    </div>
+                    <button class="btn-submit-assignment" onclick="openSubmitModal('Web Systems & Technologies', 'Prof. Ali')">
+                        <i class="fas fa-upload"></i> Submit Assignment
+                    </button>
+                </div>
+
+                <!-- Subject 2: Advanced Database -->
+                <div class="subject-card">
+                    <div class="subject-icon">🗄️</div>
+                    <h4>Advanced Database System</h4>
+                    <p>Database design, normalization, SQL, NoSQL, and query optimization.</p>
+                    <div class="subject-meta">
+                        <span><i class="fas fa-user"></i> Prof. Ali</span>
+                        <span><i class="fas fa-clock"></i> TTH 9:00-12:00 PM</span>
+                    </div>
+                    <button class="btn-submit-assignment" onclick="openSubmitModal('Advanced Database System', 'Prof. Ali')">
+                        <i class="fas fa-upload"></i> Submit Assignment
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SUBMIT DOCS SECTION ===== -->
+    <section id="docs" class="section docs-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-upload"></i> Submit Assignment</h2>
+            <div class="docs-wrapper">
+                <div class="upload-box" id="uploadBox">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Submit your projects or assignments</h3>
+                    <p>PDF, Word, ZIP, or any document file · max 15MB</p>
+
+                    <!-- Subject Selector -->
+                    <div class="subject-selector">
+                        <label for="subjectSelect"><i class="fas fa-book"></i> Select Subject:</label>
+                        <select id="subjectSelect">
+                            <option value="">-- Choose Subject --</option>
+                            <option value="Web Systems & Technologies">Web Systems & Technologies</option>
+                            <option value="Advanced Database System">Advanced Database System</option>
+                        </select>
+                    </div>
+
+                    <div class="file-input-wrapper">
+                        <input type="file" id="fileInput" multiple />
+                    </div>
+
+                    <button id="submitBtn"><i class="fas fa-paper-plane"></i> Submit to Professor</button>
+
+                    <div id="status"></div>
+
+                    <div class="pass-info">
+                        <i class="fas fa-inbox"></i> 
+                        Pass to : <strong> adzmeirahcalimsailila@gmail.com</strong>
+                    </div>
+
+                    <!-- ===== SUBMISSION COUNTER ===== -->
+                    <div class="submission-counter">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Total Submitted: </span>
+                        <span id="submissionCount">0</span>
+                    </div>
+                </div>
+
+                <div class="recent-docs">
+                    <h4>📄 Recently Submitted</h4>
+                    <ul id="submissionList">
+                        <li style="color: #aab9d9; text-align: center; padding: 20px 0;">
+                            <i class="fas fa-inbox" style="font-size: 2rem; display: block; margin-bottom: 10px;"></i>
+                            No submissions yet
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Contact Me</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>adzmeirahcalimsailila@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>09914073907</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Awang, Philippines</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required />
+                    <input type="email" placeholder="Your Email" required />
+                    <input type="text" placeholder="Subject" required />
+                    <textarea placeholder="Your Message" rows="4" required></textarea>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MODAL FOR SUBMIT ===== -->
+    <div id="submitModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-upload"></i> Submit Assignment</h3>
+                <span class="modal-close" onclick="closeSubmitModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Subject:</strong> <span id="modalSubject"></span></p>
+                <p><i class="fas fa-user"></i> Professor: <span id="modalProfessor"></span></p>
+                
+                <div class="modal-file-input">
+                    <label for="modalFileInput"><i class="fas fa-file"></i> Choose Files:</label>
+                    <input type="file" id="modalFileInput" multiple />
+                </div>
+
+                <div class="modal-actions">
+                    <button class="btn-primary" onclick="submitFromModal()">
+                        <i class="fas fa-paper-plane"></i> Submit
+                    </button>
+                    <button class="btn-secondary" onclick="closeSubmitModal()">Cancel</button>
+                </div>
+
+                <div id="modalStatus"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Adzmeirah Sailia · BSIT Student</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#subjects">Subjects</a>
+                <a href="#docs">Submit</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
